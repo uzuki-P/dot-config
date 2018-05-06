@@ -1,0 +1,5 @@
+#!/bin/bash
+
+conky -c /home/uzuki-p/.script/sidebar_conky &&
+
+exit 0

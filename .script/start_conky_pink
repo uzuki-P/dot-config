@@ -1,0 +1,5 @@
+#!/bin/bash
+
+conky -c /home/uzuki-p/.script/conky_pink &&
+
+exit 0
