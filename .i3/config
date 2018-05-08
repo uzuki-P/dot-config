@@ -188,7 +188,7 @@ assign [title="Terminal"] $ws1
 assign [title="Google Chrome"] $ws2
 assign [class="studio"] $ws3
 assign [class="idea"] $ws3
-assign [class="vlc"] $ws5
+assign [class=".*"] $ws4
 
 # Open window in tabbed mode
 for_window [class="studio"] layout tabbed
