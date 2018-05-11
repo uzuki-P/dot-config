@@ -24,9 +24,12 @@ set timeout timeoutlen=200 ttimeoutlen=100
 set visualbell                  " don't beep
 set noerrorbells                " don't beep
 set autowrite                   "Save on buffer switch
-set textwidth=80
 
 set laststatus=2
+
+" key map
+map <C-n> :NERDTreeToggle<CR>
+
 
 " no visual bell on j/k
 noremap <expr> k ((line('.')==1)?'':'k')
@@ -59,12 +62,16 @@ let g:lightline = {
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-fugitive'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-rmarkdown'
-Plug 'jamshedvesuna/vim-markdown-preview'
 Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-system-copy'
+"Plug 'vim-pandoc/vim-pandoc'
+"Plug 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'vim-pandoc/vim-rmarkdown'
+"Plug 'jamshedvesuna/vim-markdown-preview'
+
 
 " Initialize plugin system
 call plug#end()

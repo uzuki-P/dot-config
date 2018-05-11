@@ -1,0 +1,33 @@
+conky.config = {
+	alignment = 'top_right',
+	background = true,
+    color1 = 'A9A9A9',
+	color2 = 'E91E63',
+    color3 = '616161',
+	cpu_avg_samples = 2,
+	default_color = 'FFFFFF',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=8',
+	gap_x = 25,
+	gap_y = 30,
+	minimum_width = 100,
+	maximum_width = 500,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'dock',
+	own_window_transparent = true,
+	
+	update_interval = 1.5,
+	use_xft = true,
+
+	net_avg_samples = 2,
+	draw_shades=true,
+	draw_graph_borders= false,
+    default_shade_color= '616161',
+    default_outline_color= 'black'
+}
+
+conky.text = [[
+    $color${font Bitstream Vera Sans:size=8}${time %A}, ${time %e} ${time %b} ${time %H}:${time %m} ${color2}$cpu% ${color} $mem ${color3}${font}${downspeedf wlp2s0}k/s (${totaldown wlp2s0})
+]]
+

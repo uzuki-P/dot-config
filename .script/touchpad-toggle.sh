@@ -5,7 +5,9 @@ state=$(xinput list-props "$device" | grep "Device Enabled" | cut -f3)
 echo $state
 
 if [ $state == 1 ]; then
-xinput --disable "$device"
+    xinput --disable "$device"
+    xdotool mousemove 0 768
 else
-xinput --enable "$device"
+    xinput --enable "$device"
+    xdotool mousemove 683 384
 fi

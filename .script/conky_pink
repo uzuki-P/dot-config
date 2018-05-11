@@ -20,6 +20,7 @@ conky.config = {
 	use_xft = true,
 
 	net_avg_samples = 2,
+	draw_shades=true,
 	draw_graph_borders= false,
     default_shade_color= '616161',
     default_outline_color= 'black'
@@ -59,7 +60,5 @@ conky.text = [[
     ${voffset 10}${color2}${alignr}${execi 1200 whoami}@${nodename}
     ${alignr}${color2}${font Bitstream Vera Sans:size=8}uptime: ${color}${uptime_short}
     ${voffset 5}${color2}${font Bitstream Vera Sans:size=8}${alignr}kernel: ${color}${kernel}
-    
-
 ]]
 

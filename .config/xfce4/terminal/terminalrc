@@ -34,4 +34,6 @@ BackgroundImageFile=/home/uzuki-p/Pictures/illust_63176224_20170829_164202_resiz
 BackgroundImageShading=0,740000
 BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_SCALED
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+ColorCursorUseDefault=FALSE
+ColorCursor=#f5f500005757
 
