@@ -39,12 +39,12 @@ ZSH_THEME="bullet-train"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -59,7 +59,8 @@ ZSH_THEME="bullet-train"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
+  git,
+  postgres
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -96,10 +97,11 @@ source $ZSH/oh-my-zsh.sh
 
 
 #====================== new config ======================
-# Environment Variable
+# Global Config 
 export VISUAL=vim
 export EDITOR="$VISUAL"  # git default editor
 export GIT_EDITOR="$VISUAL"
+export PGDATA="/var/lib/postgres/data"
 
 # environment variable
 export PATH="${PATH}:/home/uzuki-p/.config/composer/vendor/bin"
@@ -145,3 +147,4 @@ if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(type __init_nvm)" = function ]; then
   }
   for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
 fi
+

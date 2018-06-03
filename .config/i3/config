@@ -53,10 +53,6 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 ################################################################################################
 
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 5; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 5; notify-send 'brightness down'"
-
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec google-chrome-stable
@@ -70,16 +66,16 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+bindsym $mod+Mod1+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -88,10 +84,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -101,12 +97,12 @@ bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
+# bindsym $mod+b workspace back_and_forth
 bindsym $mod+Tab workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+b split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
@@ -147,7 +143,7 @@ bindsym $mod+Ctrl+Left workspace prev
 #                 set $ws2 2:
 set $ws1 "1:" 
 set $ws2 "2:"
-set $ws3 "3:"
+set $ws3 "3:"
 set $ws4 "4:4"
 set $ws5 "5:5"
 set $ws6 "6:6"
@@ -184,13 +180,26 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
+
+
 # Open applications on specific workspaces
-assign [title="Terminal"] $ws1
 assign [class="Termite"] $ws1
-assign [title="Google Chrome"] $ws2
+assign [class="MuPDF"] $ws1
+assign [class="Zathura"] $ws1
+assign [class="feh"] $ws1
+assign [class="mpv"] $ws1
+
+assign [class="Google-chrome"] $ws2
+assign [class="Opera"] $ws2
+
 assign [class="studio"] $ws3
 assign [class="idea"] $ws3
+assign [class="Code"] $ws3
+assign [class="jetbrains-phpstorm"] $ws3
+
 assign [class=".*"] $ws4
+
+
 
 # Open window in tabbed mode
 for_window [class="studio"] layout tabbed
@@ -266,10 +275,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -358,21 +367,7 @@ set_from_resource $term_color15    color15
  
  	 bindsym button4 nop
  	 bindsym button5 nop
- #   font xft:URWGothic-Book 11
  	 strip_workspace_numbers yes
- 
-#     colors {
-#         background #283339
-#         statusline #F9FAF9
-#         separator  #454947
-# 
-# #                      border  backgr. text
-#         focused_workspace  #F9FAF9 #16a085 #292F34
-#         active_workspace   #595B5B #353836 #FDF6E3
-#         inactive_workspace #595B5B #283339 #EEE8D5
-#         binding_mode       #16a085 #2C2C2C #F9FAF9
-#         urgent_workspace   #16a085 #FDF6E3 #E5201D
-     # }
  }
 # exec "powerline-lemonbar --i3 --height 16 -- -a 40 -b -f 'DejaVu Sans Mono for Powerline-11' -f 'FontAwesome-11'"
 
@@ -449,13 +444,14 @@ mode "$mode_gaps_outer" {
 
 
 
-
+# turn off bell
+exec xset b off
 
 # Touchpad Setting
 exec xinput set-prop 'DELL07AD:00 06CB:75E3 Touchpad' 'libinput Natural Scrolling Enabled' 1
 
 # Touchpad toggl
-bindsym $mod+p exec touchpad-toggle.sh
+bindsym $mod+p exec touchpad-toggle
 # redshift
 exec --no-startup-id redshift
 
@@ -463,3 +459,10 @@ exec --no-startup-id redshift
 bindsym XF86AudioPlay exec cmus-remote -C player-pause
 bindsym XF86AudioNext exec cmus-remote -C player-next
 bindsym XF86AudioPrev exec cmus-remote -C player-prev
+
+# Screen brightness controls
+bindsym Shift+XF86MonBrightnessUp exec "xbacklight -inc 5; exec notify-send 'Brightness Up'"
+bindsym Shift+XF86MonBrightnessDown exec "xbacklight -dec 5; exec notify-send 'Brightness Down'"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 30
+bindsym XF86MonBrightnessDown exec xbacklight -dec 30
+

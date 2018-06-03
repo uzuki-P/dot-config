@@ -5,25 +5,30 @@ conky.config = {
 	color2 = 'E91E63',
     color3 = '616161',
 	cpu_avg_samples = 2,
-	default_color = 'FFFFFF',
+	default_color = '212121',
 	double_buffer = true,
 	font = 'Bitstream Vera Sans:size=8',
-	gap_x = 25,
+	gap_x = 30,
 	gap_y = 30,
 	minimum_width = 250,
 	maximum_width = 250,
 	no_buffers = true,
 	own_window = true,
 	own_window_type = 'override',
-	own_window_transparent = true,
-	update_interval = 1.5,
+	own_window_hints='undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_transparent = true,
+    -- own_window_argb_visual=true,
+    -- own_window_argb_value=70,
+    -- own_window_colour = '000000',
+    update_interval = 1.5,
 	use_xft = true,
 
 	net_avg_samples = 2,
-	draw_shades=true,
+	draw_shades=false,
 	draw_graph_borders= false,
     default_shade_color= '616161',
-    default_outline_color= 'black'
+    default_outline_color= 'black',
+    border_inner_margin= 15
 }
 
 conky.text = [[
@@ -53,7 +58,7 @@ conky.text = [[
     ${font FontAwesome} ${font}   download ${alignr}${downspeedf wlp2s0}k/s (${totaldown wlp2s0})
     #
     ${alignr}${upspeedgraph wlp2s0 50,220 E91E63 F48FB1}
-    ${goto 23}${font FontAwesome} ${font}   upload ${alignr}${upspeedf wlp2s0}k/s (${totalup wlp2s0})
+    ${font FontAwesome} ${font}   upload ${alignr}${upspeedf wlp2s0}k/s (${totalup wlp2s0})
     #
     ${voffset 25}$font$alignr${execi 10000 awk -F= '/TION/ {print $2}' /etc/lsb-release |sed 's/"//g'} \
     ${execi 10000 awk -F= '/EASE=/ {printf $2" "} /NAME/ {print $2}' /etc/lsb-release}
