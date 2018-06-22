@@ -59,6 +59,10 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
+" vim emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,php EmmetInstall
+
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
@@ -67,6 +71,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-system-copy'
+Plug 'mattn/emmet-vim'
 "Plug 'vim-pandoc/vim-pandoc'
 "Plug 'vim-pandoc/vim-pandoc-syntax'
 "Plug 'vim-pandoc/vim-rmarkdown'

@@ -156,6 +156,7 @@ export GIT_EDITOR="$VISUAL"
 export PATH="${PATH}:/home/uzuki-p/.config/composer/vendor/bin"
 export PATH="${PATH}:/home/uzuki-p/programs/flutter/bin"
 export PATH="${PATH}:/home/uzuki-p/Android/Sdk/platform-tools"
+export PATH="${PATH}:/home/uzuki-p/.local/bin"
 
 # .script path
 export PATH="${PATH}:/home/uzuki-p/.script"

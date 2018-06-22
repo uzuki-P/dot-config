@@ -60,7 +60,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git,
-  postgres
+  python
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -107,6 +107,7 @@ export PGDATA="/var/lib/postgres/data"
 export PATH="${PATH}:/home/uzuki-p/.config/composer/vendor/bin"
 export PATH="${PATH}:/home/uzuki-p/programs/flutter/bin"
 export PATH="${PATH}:/home/uzuki-p/Android/Sdk/platform-tools"
+export PATH="${PATH}:/home/uzuki-p/.local/bin"
 
 # .script path
 export PATH="${PATH}:/home/uzuki-p/.script"
@@ -130,7 +131,6 @@ eval `dircolors ~/dircolors.256dark`
 
 # cmus on tmux
 alias tmux-cmus='tmux new-session -A -D -s cmus cmus'
-alias tmux-android='tmux new-session -A -D -s "Android" -c /mnt/Coding/android-project/'
 
 # Defer initialization of nvm until nvm, node or a node-dependent command is
 # run. Ensure this block is only run once if .bashrc gets sourced multiple times
