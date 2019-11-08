@@ -132,6 +132,10 @@ eval `dircolors ~/dircolors.256dark`
 # cmus on tmux
 alias tmux-cmus='tmux new-session -A -D -s cmus cmus'
 
+# ranger. Move to working directory when close.
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+
+
 # Defer initialization of nvm until nvm, node or a node-dependent command is
 # run. Ensure this block is only run once if .bashrc gets sourced multiple times
 # by checking whether __init_nvm is a function.
