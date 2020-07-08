@@ -135,6 +135,10 @@ alias tmux-cmus='tmux new-session -A -D -s cmus cmus'
 # ranger. Move to working directory when close.
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
+# force tmux using true color
+alias tmux='TERM=screen-256color tmux -2'
+alias tmuxinator='TERM=screen-256color tmuxinator'
+alias tmux='TERM=screen-256color tmux'
 
 # Defer initialization of nvm until nvm, node or a node-dependent command is
 # run. Ensure this block is only run once if .bashrc gets sourced multiple times
